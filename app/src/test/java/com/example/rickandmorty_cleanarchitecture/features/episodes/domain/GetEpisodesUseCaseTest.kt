@@ -1,12 +1,10 @@
 package com.example.rickandmorty_cleanarchitecture.features.episodes.domain
 
-import android.provider.Settings
 import com.example.rickandmorty_cleanarchitecture.features.episodes.EpisodeRepository
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.GlobalScope
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 
 internal class GetEpisodesUseCaseTest {
 
