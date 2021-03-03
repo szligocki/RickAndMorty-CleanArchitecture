@@ -2,10 +2,10 @@ package com.example.rickandmorty_cleanarchitecture.features.characters.data.repo
 
 import com.example.rickandmorty_cleanarchitecture.core.api.RickAndMortyApi
 import com.example.rickandmorty_cleanarchitecture.core.network.NetworkStateProvider
-import com.example.rickandmorty_cleanarchitecture.features.characters.CharacterRepository
 import com.example.rickandmorty_cleanarchitecture.features.characters.data.local.model.CharacterCached
 import com.example.rickandmorty_cleanarchitecture.features.characters.data.local.model.CharacterDao
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.model.Character
+import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.CharacterRepository
 
 class CharactersRepositoryImpl(
     private val rickAndMortyApi: RickAndMortyApi,

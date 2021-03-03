@@ -1,6 +1,6 @@
 package com.example.rickandmorty_cleanarchitecture.features.characters.domain
 
-import com.example.rickandmorty_cleanarchitecture.features.characters.CharacterRepository
+import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.CharacterRepository
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.GlobalScope

@@ -1,7 +1,7 @@
 package com.example.rickandmorty_cleanarchitecture.features.characters.domain
 
 import com.example.rickandmorty_cleanarchitecture.core.base.UseCase
-import com.example.rickandmorty_cleanarchitecture.features.characters.CharacterRepository
+import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.CharacterRepository
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.model.Character
 
 class GetCharactersUseCase(private val characterRepository: CharacterRepository):
