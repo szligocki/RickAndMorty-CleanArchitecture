@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.data.remote.model.episode
+package com.example.rickandmorty_cleanarchitecture.core.api.model.episode
 
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model.Episode
 import com.google.gson.annotations.SerializedName
@@ -13,6 +13,7 @@ data class EpisodeRemote(
     @SerializedName("url") val url: String?,
     @SerializedName("created") val created: String?
 ) {
+    companion object
 
     fun toEpisode() = Episode(
         id = id,

@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.data.remote.model.location
+package com.example.rickandmorty_cleanarchitecture.core.api.model.location
 
 import com.example.rickandmorty_cleanarchitecture.features.locations.domain.model.Location
 import com.google.gson.annotations.SerializedName
