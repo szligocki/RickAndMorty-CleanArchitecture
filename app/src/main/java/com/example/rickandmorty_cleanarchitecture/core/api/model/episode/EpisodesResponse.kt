@@ -1,6 +1,5 @@
-package com.example.rickandmorty_cleanarchitecture.core.api.model
+package com.example.rickandmorty_cleanarchitecture.core.api.model.episode
 
-import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodeRemote
 import com.google.gson.annotations.SerializedName
 
 data class EpisodesResponse(

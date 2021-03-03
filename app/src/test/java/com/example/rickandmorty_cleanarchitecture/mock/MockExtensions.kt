@@ -1,7 +1,7 @@
 package com.example.rickandmorty_cleanarchitecture.mock
 
-import com.example.rickandmorty_cleanarchitecture.core.api.model.EpisodesResponse
-import com.example.rickandmorty_cleanarchitecture.core.api.model.ResponseInfo
+import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodesResponse
+import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.ResponseInfo
 import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodeRemote
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.model.EpisodeCached
 import org.jetbrains.annotations.TestOnly

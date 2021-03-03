@@ -1,7 +1,7 @@
 package com.example.rickandmorty_cleanarchitecture.features.episodes.data.repository
 
 import com.example.rickandmorty_cleanarchitecture.core.api.RickAndMortyApi
-import com.example.rickandmorty_cleanarchitecture.core.api.model.EpisodesResponse
+import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodesResponse
 import com.example.rickandmorty_cleanarchitecture.core.network.NetworkStateProvider
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.EpisodeDao
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.model.EpisodeCached
