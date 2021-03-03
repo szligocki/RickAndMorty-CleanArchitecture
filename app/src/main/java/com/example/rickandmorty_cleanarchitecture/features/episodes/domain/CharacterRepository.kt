@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.characters
+package com.example.rickandmorty_cleanarchitecture.features.episodes.domain
 
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.model.Character
 
