@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.locations
+package com.example.rickandmorty_cleanarchitecture.features.locations.domain
 
 import com.example.rickandmorty_cleanarchitecture.features.locations.domain.model.Location
 

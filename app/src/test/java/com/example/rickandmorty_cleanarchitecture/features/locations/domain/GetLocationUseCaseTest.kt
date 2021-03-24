@@ -1,6 +1,5 @@
 package com.example.rickandmorty_cleanarchitecture.features.locations.domain
 
-import com.example.rickandmorty_cleanarchitecture.features.locations.LocationRepository
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.GlobalScope
