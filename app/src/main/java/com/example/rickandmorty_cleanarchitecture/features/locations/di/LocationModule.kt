@@ -3,8 +3,8 @@ package com.example.rickandmorty_cleanarchitecture.features.locations.di
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.LocationRepository
 import com.example.rickandmorty_cleanarchitecture.features.locations.data.repository.LocationRepositoryImpl
 import com.example.rickandmorty_cleanarchitecture.features.locations.domain.GetLocationUseCase
-import com.example.rickandmorty_cleanarchitecture.features.locations.presentation.model.LocationFragment
-import com.example.rickandmorty_cleanarchitecture.features.locations.presentation.model.LocationViewModel
+import com.example.rickandmorty_cleanarchitecture.features.locations.all.presentation.model.LocationFragment
+import com.example.rickandmorty_cleanarchitecture.features.locations.all.presentation.model.LocationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

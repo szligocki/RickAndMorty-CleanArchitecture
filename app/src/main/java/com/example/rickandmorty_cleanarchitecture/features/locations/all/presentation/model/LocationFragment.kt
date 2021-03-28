@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation
+package com.example.rickandmorty_cleanarchitecture.features.locations.all.presentation.model
 
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -7,17 +7,15 @@ import com.example.rickandmorty_cleanarchitecture.R
 import com.example.rickandmorty_cleanarchitecture.core.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_episode.*
 import org.koin.android.ext.android.inject
-
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+class LocationFragment : BaseFragment<LocationViewModel>(R.layout.fragment_location) {
 
-class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episode) {
-
-    override val viewModel: EpisodesViewModel by viewModel()
+    override val viewModel: LocationViewModel by viewModel()
 
     private val linearLayoutManager: LinearLayoutManager by inject();
     private val divider: DividerItemDecoration by inject()
-//    private val episodeAdapter: EpisodeAdapter by inject()
+    //    private val locationAdapter: LocationAdapter by inject()
 
     override fun initViews() {
         super.initViews()
@@ -29,7 +27,7 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episo
             layoutManager = linearLayoutManager
             addItemDecoration(divider)
             setHasFixedSize(true)
-//            adapter = episodeAdapter
+//            adapter = locationAdapter
         }
     }
 
@@ -41,6 +39,7 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episo
     override fun onIdleState() {
         super.onIdleState()
         progressBar.visibility = View.GONE
+
     }
 
     override fun onPendingState() {
@@ -57,7 +56,8 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episo
     }
 
     private fun observeEpisodes() {
-        viewModel.episodes.observe(this) {
+        viewModel.locations.observe(this) {
         }
     }
+
 }
