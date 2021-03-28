@@ -2,4 +2,8 @@
     <string name="app_name">RickAndMorty-CleanArchitecture</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="error_internal">The server is under maintenance. Please try again in a few minutes</string>
+    <string name="error_bad_request">Validation error. Please check input parameters</string>
+    <string name="error_unknown">Ops... Something went wrong</string>
 </resources>
