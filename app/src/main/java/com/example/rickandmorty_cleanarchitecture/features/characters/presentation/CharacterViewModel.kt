@@ -5,11 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty_cleanarchitecture.core.base.BaseViewModel
+import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.GetCharactersUseCase
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.model.Character
 import com.example.rickandmorty_cleanarchitecture.features.characters.presentation.model.CharacterDisplayable
 
-class CharacterViewModel(private val getCharactersUseCase: GetCharactersUseCase) : BaseViewModel() {
+class CharacterViewModel(
+    private val getCharactersUseCase: GetCharactersUseCase,
+    errorMapper: ErrorMapper
+) : BaseViewModel(errorMapper) {
 
     private val _characters by lazy {
         MutableLiveData<List<Character>>()
