@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.episodes.presentation
+package com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.example.rickandmorty_cleanarchitecture.core.base.BaseViewModel
 import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.GetEpisodesUseCase
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model.Episode
-import com.example.rickandmorty_cleanarchitecture.features.episodes.presentation.model.EpisodeDisplayable
+import com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation.model.EpisodeDisplayable
 
 class EpisodeViewModel(
     private val getEpisodesUseCase: GetEpisodesUseCase,

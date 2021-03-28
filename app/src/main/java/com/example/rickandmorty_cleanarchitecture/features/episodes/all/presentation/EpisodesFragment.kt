@@ -1,13 +1,13 @@
-package com.example.rickandmorty_cleanarchitecture.features.episodes.presentation
+package com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation
 
 import com.example.rickandmorty_cleanarchitecture.R
 import com.example.rickandmorty_cleanarchitecture.core.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class EpisodeFragment : BaseFragment<EpisodeViewModel>(R.layout.fragment_episode) {
+class EpisodeFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episode) {
 
-    override val viewModel: EpisodeViewModel by viewModel()
+    override val viewModel: EpisodesViewModel by viewModel()
 
     override fun initViews() {
         super.initViews()

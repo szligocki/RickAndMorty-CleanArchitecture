@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.episodes.presentation
+package com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
