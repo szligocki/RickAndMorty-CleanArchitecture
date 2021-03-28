@@ -48,13 +48,13 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episo
         progressBar.visibility = View.VISIBLE
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        with(recyclerView){
-            layoutManager = null
-            adapter = null
-        }
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        with(recyclerView){
+//            layoutManager = null
+//            adapter = null
+//        }
+//    }
 
     private fun observeEpisodes() {
         viewModel.episodes.observe(this) {

@@ -48,13 +48,13 @@ class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_c
         progressBar.visibility = View.VISIBLE
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        with(recyclerView){
-            layoutManager = null
-            adapter = null
-        }
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        with(recyclerView){
+//            layoutManager = null
+//            adapter = null
+//        }
+//    }
 
     private fun observeCharacters() {
         viewModel.characters.observe(this) {

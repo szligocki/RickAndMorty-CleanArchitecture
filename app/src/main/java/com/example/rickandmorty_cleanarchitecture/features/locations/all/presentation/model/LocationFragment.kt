@@ -47,13 +47,13 @@ class LocationFragment : BaseFragment<LocationViewModel>(R.layout.fragment_locat
         progressBar.visibility = View.VISIBLE
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        with(recyclerView){
-            layoutManager = null
-            adapter = null
-        }
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        with(recyclerView){
+//            layoutManager = null
+//            adapter = null
+//        }
+//    }
 
     private fun observeEpisodes() {
         viewModel.locations.observe(this) {
