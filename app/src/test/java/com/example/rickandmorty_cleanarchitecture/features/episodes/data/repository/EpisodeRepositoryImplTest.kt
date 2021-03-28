@@ -2,6 +2,7 @@ package com.example.rickandmorty_cleanarchitecture.features.episodes.data.reposi
 
 import com.example.rickandmorty_cleanarchitecture.core.api.RickAndMortyApi
 import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodesResponse
+import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorWrapper
 import com.example.rickandmorty_cleanarchitecture.core.network.NetworkStateProvider
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.EpisodeDao
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.model.EpisodeCached
@@ -19,6 +20,8 @@ internal class EpisodeRepositoryImplTest {
     @Test
     fun `GIVEN network is connected WHEN episodes request THEN fetch episodes from API`() {
         // given
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
+
         val api = mockk<RickAndMortyApi>() {
             coEvery { getEpisodes() } returns EpisodesResponse.mock()
         }
@@ -29,7 +32,7 @@ internal class EpisodeRepositoryImplTest {
         }
 
         val repository: EpisodeRepository =
-            EpisodeRepositoryImpl(api, episodeDao, networkStateProvider)
+            EpisodeRepositoryImpl(api, episodeDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getEpisodes() }
@@ -41,6 +44,8 @@ internal class EpisodeRepositoryImplTest {
     @Test
     fun `GIVEN network is connected AND successful data fetch WHEN episodes request THEN save episodes to local database`() {
         // given
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
+
         val api = mockk<RickAndMortyApi>() {
             coEvery { getEpisodes() } returns EpisodesResponse.mock()
         }
@@ -51,7 +56,7 @@ internal class EpisodeRepositoryImplTest {
         }
 
         val repository: EpisodeRepository =
-            EpisodeRepositoryImpl(api, episodeDao, networkStateProvider)
+            EpisodeRepositoryImpl(api, episodeDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getEpisodes() }
@@ -63,6 +68,7 @@ internal class EpisodeRepositoryImplTest {
     @Test
     fun `GIVEN network is disconnected WHEN episodes request THEN fetch episodes from local database`() {
         // given
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
         val api = mockk<RickAndMortyApi>(relaxed = true)
         val episodeDao = mockk<EpisodeDao> {
             coEvery { getEpisodes() }  returns listOf(EpisodeCached.mock(), EpisodeCached.mock())
@@ -73,7 +79,7 @@ internal class EpisodeRepositoryImplTest {
         }
 
         val repository: EpisodeRepository =
-            EpisodeRepositoryImpl(api, episodeDao, networkStateProvider)
+            EpisodeRepositoryImpl(api, episodeDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getEpisodes() }

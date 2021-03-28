@@ -3,8 +3,8 @@ package com.example.rickandmorty_cleanarchitecture.features.characters.di
 import com.example.rickandmorty_cleanarchitecture.features.characters.data.repository.CharactersRepositoryImpl
 
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.GetCharactersUseCase
-import com.example.rickandmorty_cleanarchitecture.features.characters.presentation.CharacterFragment
-import com.example.rickandmorty_cleanarchitecture.features.characters.presentation.CharacterViewModel
+import com.example.rickandmorty_cleanarchitecture.features.characters.all.presentation.CharactersFragment
+import com.example.rickandmorty_cleanarchitecture.features.characters.all.presentation.CharactersViewModel
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.CharacterRepository
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -17,6 +17,6 @@ val characterModule = module {
     factory { GetCharactersUseCase(get()) }
 
     //presentation
-    viewModel { CharacterViewModel(get(), get()) }
-    factory { CharacterFragment() }
+    viewModel { CharactersViewModel(get(), get()) }
+    factory { CharactersFragment() }
 }
