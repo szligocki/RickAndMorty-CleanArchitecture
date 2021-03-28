@@ -3,6 +3,7 @@ package com.example.rickandmorty_cleanarchitecture.mock
 import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodesResponse
 import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.ResponseInfo
 import com.example.rickandmorty_cleanarchitecture.core.api.model.episode.EpisodeRemote
+import com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation.model.EpisodeDisplayable
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.model.EpisodeCached
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model.Episode
 import org.jetbrains.annotations.TestOnly
@@ -48,6 +49,16 @@ fun EpisodeCached.Companion.mock() = EpisodeCached(
 
 @TestOnly
 fun Episode.Companion.mock() = Episode (
+    id = 1,
+    name = "episode name",
+    airDate = "episode air date",
+    code = "episode code",
+    characters = emptyList(),
+    url = "episode url"
+)
+
+@TestOnly
+fun EpisodeDisplayable.Companion.mock() = EpisodeDisplayable (
     id = 1,
     name = "episode name",
     airDate = "episode air date",
