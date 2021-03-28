@@ -1,6 +1,8 @@
 package com.example.rickandmorty_cleanarchitecture.features.episodes.data.repository
 
 import com.example.rickandmorty_cleanarchitecture.core.api.RickAndMortyApi
+import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorWrapper
+import com.example.rickandmorty_cleanarchitecture.core.exception.callOrThrow
 import com.example.rickandmorty_cleanarchitecture.core.network.NetworkStateProvider
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.EpisodeDao
 import com.example.rickandmorty_cleanarchitecture.features.episodes.data.local.model.EpisodeCached
@@ -10,12 +12,13 @@ import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model
 class EpisodeRepositoryImpl(
     private val rickAndMortyApi: RickAndMortyApi,
     private val episodeDao: EpisodeDao,
-    private val networkStateProvider: NetworkStateProvider
+    private val networkStateProvider: NetworkStateProvider,
+    private val errorWrapper: ErrorWrapper
 ) : EpisodeRepository {
 
     override suspend fun getEpisodes(): List<Episode> {
         return if (networkStateProvider.isNetworkAvailable()) {
-            getEpisodesFromRemote()
+            callOrThrow(errorWrapper) { getEpisodesFromRemote() }
                 .also { saveEpisodesToLocal(it) }
         } else {
             getEpisodesFromLocal()
@@ -26,7 +29,6 @@ class EpisodeRepositoryImpl(
         return rickAndMortyApi.getEpisodes()
             .results
             .map { it.toEpisode() }
-
     }
 
     private suspend fun saveEpisodesToLocal(episodes: List<Episode>) {
@@ -39,4 +41,6 @@ class EpisodeRepositoryImpl(
         return episodeDao.getEpisodes()
             .map { it.toEpisode() }
     }
+
+
 }
