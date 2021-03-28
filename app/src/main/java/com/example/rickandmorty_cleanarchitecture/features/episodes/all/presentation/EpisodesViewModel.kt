@@ -9,9 +9,11 @@ import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.GetEpisodesUseCase
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model.Episode
 import com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation.model.EpisodeDisplayable
+import com.example.rickandmorty_cleanarchitecture.features.episodes.navigation.EpisodeNavigator
 
-class EpisodeViewModel(
+class EpisodesViewModel(
     private val getEpisodesUseCase: GetEpisodesUseCase,
+    private val episodeNavigator: EpisodeNavigator,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {
 
@@ -37,5 +39,8 @@ class EpisodeViewModel(
         }
     }
 
+    fun onEpisodeClick(episode: EpisodeDisplayable) {
+        episodeNavigator.openEpisodeDetailsScreen(episode)
+    }
 
 }
