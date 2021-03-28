@@ -2,6 +2,8 @@ package com.example.rickandmorty_cleanarchitecture.features.characters.data.repo
 
 import com.example.rickandmorty_cleanarchitecture.core.api.RickAndMortyApi
 import com.example.rickandmorty_cleanarchitecture.core.api.model.character.CharactersResponse
+import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
+import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorWrapper
 import com.example.rickandmorty_cleanarchitecture.core.network.NetworkStateProvider
 import com.example.rickandmorty_cleanarchitecture.features.characters.data.local.model.CharacterCached
 import com.example.rickandmorty_cleanarchitecture.features.characters.data.local.model.CharacterDao
@@ -19,6 +21,8 @@ internal class CharactersRepositoryImplTest {
     @Test
     fun `GIVEN network is connected WHEN characters request THEN fetch characters from API`() {
         // given
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
+
         val api = mockk<RickAndMortyApi>() {
             coEvery { getCharacters() } returns CharactersResponse.mock()
         }
@@ -29,7 +33,7 @@ internal class CharactersRepositoryImplTest {
         }
 
         val repository: CharacterRepository =
-            CharactersRepositoryImpl(api, characterDao, networkStateProvider)
+            CharactersRepositoryImpl(api, characterDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getCharacters() }
@@ -41,6 +45,8 @@ internal class CharactersRepositoryImplTest {
     @Test
     fun `GIVEN network is connected AND successful data fetch WHEN characters request THEN save characters to local database`() {
         // given
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
+
         val api = mockk<RickAndMortyApi>() {
             coEvery { getCharacters() } returns CharactersResponse.mock()
         }
@@ -51,7 +57,7 @@ internal class CharactersRepositoryImplTest {
         }
 
         val repository: CharacterRepository =
-            CharactersRepositoryImpl(api, characterDao, networkStateProvider)
+            CharactersRepositoryImpl(api, characterDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getCharacters() }
@@ -63,6 +69,7 @@ internal class CharactersRepositoryImplTest {
     @Test
     fun `GIVEN network is disconnected WHEN characters request THEN fetch characters from local database`() {
         // given
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
         val api = mockk<RickAndMortyApi>(relaxed = true)
 
         val characterDao = mockk<CharacterDao>() {
@@ -76,7 +83,7 @@ internal class CharactersRepositoryImplTest {
         }
 
         val repository: CharacterRepository =
-            CharactersRepositoryImpl(api, characterDao, networkStateProvider)
+            CharactersRepositoryImpl(api, characterDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getCharacters() }
