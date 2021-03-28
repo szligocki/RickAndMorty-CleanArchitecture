@@ -1,16 +1,16 @@
-package com.example.rickandmorty_cleanarchitecture.features.episodes.detail.presentation
+package com.example.rickandmorty_cleanarchitecture.features.characters.detail.presentation
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.rickandmorty_cleanarchitecture.R
 import com.example.rickandmorty_cleanarchitecture.core.base.BaseFragment
 
 
-class EpisodeDetailsFragment : BaseFragment<EpisodeDetailsViewModel>(R.layout.fragment_episode_details) {
+class CharacterDetailsFragment : BaseFragment<CharacterDetailsViewModel>(R.layout.fragment_character_details) {
 
-    override val viewModel : EpisodeDetailsViewModel by viewModel()
+    override val viewModel : CharacterDetailsViewModel by viewModel()
 
     companion object{
-        const val EPISODE_DETAILS_KEY = "episodeDetailsKey"
+        const val CHARACTER_DETAILS_KEY = "characterDetailsKey"
     }
 
 }

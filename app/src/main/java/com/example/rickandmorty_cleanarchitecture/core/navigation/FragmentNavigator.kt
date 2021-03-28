@@ -1,6 +1,5 @@
 package com.example.rickandmorty_cleanarchitecture.core.navigation
 
-import android.os.Bundle
 import androidx.annotation.IdRes
 
 interface FragmentNavigator {

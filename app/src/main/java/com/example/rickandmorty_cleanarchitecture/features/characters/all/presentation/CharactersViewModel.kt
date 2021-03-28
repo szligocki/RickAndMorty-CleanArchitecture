@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.characters.presentation
+package com.example.rickandmorty_cleanarchitecture.features.characters.all.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,9 +8,9 @@ import com.example.rickandmorty_cleanarchitecture.core.base.BaseViewModel
 import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.GetCharactersUseCase
 import com.example.rickandmorty_cleanarchitecture.features.characters.domain.model.Character
-import com.example.rickandmorty_cleanarchitecture.features.characters.presentation.model.CharacterDisplayable
+import com.example.rickandmorty_cleanarchitecture.features.characters.all.presentation.model.CharacterDisplayable
 
-class CharacterViewModel(
+class CharactersViewModel(
     private val getCharactersUseCase: GetCharactersUseCase,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {

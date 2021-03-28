@@ -1,4 +1,4 @@
-package com.example.rickandmorty_cleanarchitecture.features.episodes.detail.presentation
+package com.example.rickandmorty_cleanarchitecture.features.characters.detail.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,42 +6,42 @@ import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty_cleanarchitecture.core.base.BaseViewModel
 import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
-import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.GetEpisodesUseCase
-import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model.Episode
-import com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation.model.EpisodeDisplayable
-import com.example.rickandmorty_cleanarchitecture.features.episodes.navigation.EpisodeNavigator
+import com.example.rickandmorty_cleanarchitecture.features.characters.all.presentation.model.CharacterDisplayable
+import com.example.rickandmorty_cleanarchitecture.features.characters.domain.GetCharactersUseCase
+import com.example.rickandmorty_cleanarchitecture.features.characters.domain.model.Character
+import com.example.rickandmorty_cleanarchitecture.features.characters.navigation.CharacterNavigator
 
-// todo zmienic to na jeden episode
-class EpisodeDetailsViewModel(
-    private val getEpisodesUseCase: GetEpisodesUseCase,
-    private val episodeNavigator: EpisodeNavigator,
+
+class CharacterDetailsViewModel(
+    private val getCharactersUseCase: GetCharactersUseCase,
+    private val characterNavigator: CharacterNavigator,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {
 
 
-    private val _episodes by lazy {
-        MutableLiveData<List<Episode>>()
-            .also { getEpisodes(it) }
+    private val _characters by lazy {
+        MutableLiveData<List<Character>>()
+            .also { getCharacters(it) }
     }
 
-    val episodes: LiveData<List<EpisodeDisplayable>> = _episodes.map { episodes ->
-        episodes.map { EpisodeDisplayable(it) }
+    val characters: LiveData<List<CharacterDisplayable>> = _characters.map { characters ->
+        characters.map { CharacterDisplayable(it) }
     }
 
-    private fun getEpisodes(episodeLiveData: MutableLiveData<List<Episode>>) {
+    private fun getCharacters(characterLiveData: MutableLiveData<List<Character>>) {
         setPendingState()
-        getEpisodesUseCase(
+        getCharactersUseCase(
             params = Unit,
             scope = viewModelScope
         ) { result ->
             setIdleState()
-            result.onSuccess { episodes -> episodeLiveData.value = episodes }
+            result.onSuccess { characters -> characterLiveData.value = characters }
             result.onFailure { handleFailure(it) }
         }
     }
 
-    fun onEpisodeClick(episode: EpisodeDisplayable) {
-        episodeNavigator.openEpisodeDetailsScreen(episode)
+    fun onEpisodeClick(character: CharacterDisplayable) {
+        characterNavigator.openCharacterDetailsScreen(character)
     }
 
 }

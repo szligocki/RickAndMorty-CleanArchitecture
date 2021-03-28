@@ -11,7 +11,7 @@ import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model
 import com.example.rickandmorty_cleanarchitecture.features.episodes.all.presentation.model.EpisodeDisplayable
 import com.example.rickandmorty_cleanarchitecture.features.episodes.navigation.EpisodeNavigator
 
-// todo zmienic to na jeden episode
+
 class EpisodeDetailsViewModel(
     private val getEpisodesUseCase: GetEpisodesUseCase,
     private val episodeNavigator: EpisodeNavigator,

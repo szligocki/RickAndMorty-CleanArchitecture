@@ -17,7 +17,7 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episo
 
     private val linearLayoutManager: LinearLayoutManager by inject();
     private val divider: DividerItemDecoration by inject()
-    private val episodeAdapter: EpisodeAdapter by inject()
+//    private val episodeAdapter: EpisodeAdapter by inject()
 
     override fun initViews() {
         super.initViews()
@@ -29,7 +29,7 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episo
             layoutManager = linearLayoutManager
             addItemDecoration(divider)
             setHasFixedSize(true)
-            adapter = episodeAdapter
+//            adapter = episodeAdapter
         }
     }
 
