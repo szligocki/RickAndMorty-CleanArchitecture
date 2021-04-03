@@ -9,7 +9,7 @@ import com.example.rickandmorty_cleanarchitecture.core.exception.ErrorMapper
 import com.example.rickandmorty_cleanarchitecture.features.locations.domain.GetLocationUseCase
 import com.example.rickandmorty_cleanarchitecture.features.locations.domain.model.Location
 
-class LocationViewModel(
+class LocationsViewModel(
     private val getLocationUseCase: GetLocationUseCase,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {
