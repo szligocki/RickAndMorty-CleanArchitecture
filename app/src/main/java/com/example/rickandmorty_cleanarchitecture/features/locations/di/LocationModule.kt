@@ -4,7 +4,7 @@ import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.Locat
 import com.example.rickandmorty_cleanarchitecture.features.locations.data.repository.LocationRepositoryImpl
 import com.example.rickandmorty_cleanarchitecture.features.locations.domain.GetLocationUseCase
 import com.example.rickandmorty_cleanarchitecture.features.locations.all.presentation.model.LocationFragment
-import com.example.rickandmorty_cleanarchitecture.features.locations.all.presentation.model.LocationViewModel
+import com.example.rickandmorty_cleanarchitecture.features.locations.all.presentation.model.LocationsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -16,6 +16,6 @@ val locationModule = module {
     factory { GetLocationUseCase(get()) }
 
     //presentation
-    viewModel { LocationViewModel(get(), get()) }
+    viewModel { LocationsViewModel(get(), get()) }
     factory { LocationFragment() }
 }

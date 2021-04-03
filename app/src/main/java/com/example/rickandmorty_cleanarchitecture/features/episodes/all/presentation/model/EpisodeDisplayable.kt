@@ -3,6 +3,7 @@ package com.example.rickandmorty_cleanarchitecture.features.episodes.all.present
 import android.os.Parcelable
 
 import com.example.rickandmorty_cleanarchitecture.features.episodes.domain.model.Episode
+import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -24,5 +25,7 @@ data class EpisodeDisplayable(
         url = episode.url
     )
 
+    @IgnoredOnParcel
+    val fullName = "$code: $name"
     companion object
 }
